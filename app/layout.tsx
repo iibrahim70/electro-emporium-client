@@ -17,14 +17,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  productDetailModal,
 }: {
   children: React.ReactNode;
+  productDetailModal: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body
         className={cn(titilliumWeb.className, "bg-light text-dark antialiased")}
       >
+        {productDetailModal}
         <Navbar />
         {children}
         <Footer />

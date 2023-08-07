@@ -1,6 +1,5 @@
 import { formatCurrency } from "@/utils/formatCurrency";
 import Image from "next/image";
-import Link from "next/link";
 import NewLink from "./NewLink";
 
 interface ProductCardProps {
