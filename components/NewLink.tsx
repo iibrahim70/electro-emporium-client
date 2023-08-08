@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "py-2.5 px-6 rounded-lg duration-300 ease-in-out inline-block",
+  "py-2.5 px-6 rounded-lg duration-300 ease-in-out inline-block text-center",
   {
     variants: {
       color: {
