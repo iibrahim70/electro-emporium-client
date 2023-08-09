@@ -16,8 +16,8 @@ const ProductDetailModalImage: React.FC<ProductDetailModalImageProps> = ({
 
   return (
     <div className="w-full h-full grid grid-rows-5 gap-5 overflow-hidden">
-      {/* LARGE IMAGE */}
-      <div className="row-span-4 w-full h-full rounded-xl overflow-hidden">
+      {/* large images */}
+      <div className="order-last md:order-first row-span-4 w-full h-full rounded-xl overflow-hidden">
         <Image
           src={images[currImage]}
           alt={title}
@@ -27,7 +27,7 @@ const ProductDetailModalImage: React.FC<ProductDetailModalImageProps> = ({
           className="w-full h-full object-cover"
         />
       </div>
-      {/* SMALL IMAGES */}
+      {/* small images */}
       <div className="w-full h-full grid grid-cols-4 gap-5">
         {images?.map((image: string, i: number) => (
           <div

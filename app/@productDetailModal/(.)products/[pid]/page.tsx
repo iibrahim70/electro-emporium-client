@@ -7,8 +7,6 @@ import { products } from "@/data/products";
 const ProductDetailModal = ({ params }: { params: { pid: string } }) => {
   const product = products.find((product) => product.id === +params.pid);
 
-  console.log(product);
-
   return (
     // overlay
     <div className="fixed z-[1] top-0 left-0 right-0 bottom-0 w-screen h-screen bg-dark/20 flex justify-center items-center">

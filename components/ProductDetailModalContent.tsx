@@ -1,6 +1,4 @@
 import { formatCurrency } from "@/utils/formatCurrency";
-import NewLink from "./NewLink";
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import ProductDetailModalButtons from "./ProductDetailModalButtons";
 
 interface ProductDetailModalContentProps {
@@ -10,15 +8,16 @@ interface ProductDetailModalContentProps {
   category: string;
   price: number;
   rating: number;
+  isMainPage?: boolean;
 }
 
 const ProductDetailModalContent: React.FC<ProductDetailModalContentProps> = ({
-  id,
   title,
   description,
   category,
   price,
   rating,
+  isMainPage,
 }) => {
   return (
     <div className="w-full h-full order-first md:order-last flex flex-col gap-2.5 overflow-hidden">
@@ -31,12 +30,15 @@ const ProductDetailModalContent: React.FC<ProductDetailModalContentProps> = ({
       </div>
       <p className="text-4xl">{formatCurrency(price)}</p>
       <ProductDetailModalButtons />
-      
+
       <div className="mt-5 flex flex-col gap-2.5">
         <p className="uppercase font-semibold text-dark/75 underline underline-offset-2">
           Product Description
         </p>
-        <p className="text-dark/60">{description.substring(0, 200)}...</p>
+        <p className="text-dark/60">
+          {isMainPage ? description : description.substring(0, 200)}
+          {isMainPage ? null : "..."}
+        </p>
       </div>
     </div>
   );
