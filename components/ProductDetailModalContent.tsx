@@ -8,31 +8,35 @@ interface ProductDetailModalContentProps {
   category: string;
   price: number;
   rating: number;
+  images: string[];
   isMainPage?: boolean;
 }
 
 const ProductDetailModalContent: React.FC<ProductDetailModalContentProps> = ({
+  id,
   title,
   description,
   category,
   price,
   rating,
+  images,
   isMainPage,
 }) => {
+  const product = { id, title, description, price, image: images[0] };
+
   return (
     <div className="w-full h-full order-first md:order-last flex flex-col gap-2.5 overflow-hidden">
       <h3 className="text-4xl">{title}</h3>
-      <div className="flex gap-5 items-center">
-        <span className="text-sm uppercase font-semibold tracking-widest text-red bg-red/10 px-3 py-1.5 rounded-lg">
+      <div className="flex items-center gap-5">
+        <span className="text-xs uppercase font-semibold tracking-widest text-orange bg-orange/10 px-3 py-1.5 rounded">
           {category}
         </span>
         <p>Rating: {rating}</p>
       </div>
       <p className="text-4xl">{formatCurrency(price)}</p>
-      <ProductDetailModalButtons />
-
+      <ProductDetailModalButtons {...product} />
       <div className="mt-5 flex flex-col gap-2.5">
-        <p className="uppercase font-semibold text-dark/75 underline underline-offset-2">
+        <p className="font-semibold uppercase text-dark/75 border-b pb-2.5">
           Product Description
         </p>
         <p className="text-dark/60">

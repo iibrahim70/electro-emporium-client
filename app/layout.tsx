@@ -4,6 +4,7 @@ import { Titillium_Web } from "next/font/google";
 import Footer from "@/components/Footer";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import ReduxProvider from "@/redux/provider";
 
 const titilliumWeb = Titillium_Web({
   subsets: ["latin"],
@@ -23,15 +24,20 @@ export default function RootLayout({
   productDetailModal: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        className={cn(titilliumWeb.className, "bg-light text-dark antialiased")}
-      >
-        {productDetailModal}
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <ReduxProvider>
+      <html lang="en">
+        <body
+          className={cn(
+            titilliumWeb.className,
+            "bg-light text-dark antialiased"
+          )}
+        >
+          {productDetailModal}
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ReduxProvider>
   );
 }

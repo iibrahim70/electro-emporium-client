@@ -2,7 +2,7 @@ import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   "py-2.5 px-6 rounded-lg duration-300 ease-in-out inline-block text-center",
   {
     variants: {
